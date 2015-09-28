@@ -1,4 +1,4 @@
-# 题目1001：A+B for Matrices
+# [题目1001：A+B for Matrices](http://ac.jobdu.com/problem.php?pid=1001)
 
 ## 题目描述：
 This time, you are supposed to find A+B where A and B are two matrices, and then count the number of zero rows and columns.
