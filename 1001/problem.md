@@ -12,24 +12,31 @@ The input is terminated by a zero M and that case must NOT be processed.
 For each test case you should output in one line the total number of zero rows and columns of A+B.
 
 ## 样例输入：
-2 2  
-1 1  
-1 1  
--1 -1  
-10 9  
-2 3  
-1 2 3  
-4 5 6  
--1 -2 -3  
--4 -5 -6  
+
+```
+2 2
+1 1
+1 1
+-1 -1
+10 9
+2 3
+1 2 3
+4 5 6
+-1 -2 -3
+-4 -5 -6
 0
+```
 
 ## 样例输出：
-1  
+
+```
+1
 5
+```
 
 ## 来源：
-2011年浙江大学计算机及软件工程研究生机试真题
+
+[2011年浙江大学计算机及软件工程研究生机试真题](http://ac.jobdu.com/problemset.php?search=2011年浙江大学计算机及软件工程研究生机试真题)
 
 ## 答疑：
 解题遇到问题?分享解题心得?讨论本题请访问：http://t.jobdu.com/thread-7724-1-1.html
