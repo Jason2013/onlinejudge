@@ -32,4 +32,4 @@ For each test case you should output in one line the total number of zero rows a
 2011年浙江大学计算机及软件工程研究生机试真题
 
 ## 答疑：
-解题遇到问题?分享解题心得?讨论本题请访问：[http://t.jobdu.com/thread-7724-1-1.html]
+解题遇到问题?分享解题心得?讨论本题请访问：http://t.jobdu.com/thread-7724-1-1.html
