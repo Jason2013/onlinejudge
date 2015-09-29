@@ -49,10 +49,6 @@ int post_order(int pre_s, int pre_e, int mid_s, int mid_e)
         return succ;
 
     z[z_idx++] = root;
-    if (z_idx == n)
-    {
-        return 1;
-    }
     return 0;
 }
 
@@ -67,7 +63,7 @@ int main()
         z_idx = 0;
         succ = post_order(0, n, 0, n);
 
-        if (succ == 1)
+        if (succ == 0)
             output_n(z, n);
         else
             printf("No\n");
