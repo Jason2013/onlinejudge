@@ -5,10 +5,13 @@ int main()
     int n, k;
     while (scanf("%d %d", &n, &k) != EOF)
     {
+        float p=200.0f;
+        float ratio = 1.0f + (float)k/100.0f;
         int y;
-        for (y=4; y<=20; ++y)
+        for (y=1; y<=20; ++y)
         {
-            if (n*y*100 >= (200 * (100 + k)))
+            p *= ratio;
+            if ((float)(n*y) >= p)
             {
                 printf("%d\n", y);
                 break;
