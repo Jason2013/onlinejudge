@@ -2,7 +2,6 @@
 
 void f(int plate, int apple, int* plates, int n, int * c)
 {
-	//printf("f(%d, %d)\n", plate, apple);
 	if (plate == n)
 	{
 		return;
@@ -25,11 +24,6 @@ void f(int plate, int apple, int* plates, int n, int * c)
 		if (plate == n-1 && apple == a)
 		{
 			(*c)++;
-			/* for (int i = 0; i < n; i++) */
-			/* { */
-			/* 	printf("%d ", plates[i]); */
-			/* } */
-			/* printf("\n"); */
 			return;
 		}
 		f(plate + 1, apple - a, plates, n, c);
