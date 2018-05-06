@@ -6,26 +6,26 @@ void f(int plate, int apple, int* plates, int n, int * c)
 	{
 		return;
 	}
-	for (int a = 0; a <= apple; a++)
+
+	int min = apple;
+	for (int p = 0; p < plate; p++)
 	{
-		int p;
-		for (p = 0; p < plate; p++)
+		int apple_in_plate = plates[p];
+		if (min > apple_in_plate)
 		{
-			if (a > plates[p])
-			{
-				break;
-			}
+			min = apple_in_plate;
 		}
-		if (p < plate)
-		{
-			return;
-		}
-		plates[plate] = a;
-		if (plate == n-1 && apple == a)
+	}
+
+	int avg_apple = apple / (n - plate);
+	for (int a = min; a>= avg_apple; --a)
+	{
+		if (apple == a)
 		{
 			(*c)++;
-			return;
+			continue;
 		}
+		plates[plate] = a;
 		f(plate + 1, apple - a, plates, n, c);
 	}
 }
