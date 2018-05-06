@@ -38,14 +38,14 @@ void f(int plate, int apple, int* plates, int n, int * c)
 
 int main()
 {
-    int m, n;
-	int plates[10];
-	int c;
 	int count;
 	scanf("%d", &count);
 
     while (count--)
     {
+        int m, n;
+        int plates[10];
+        int c;
 		scanf("%d %d", &m, &n);
 		c = 0;
 		f(0, m, plates, n, &c);
