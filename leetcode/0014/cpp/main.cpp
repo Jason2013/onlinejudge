@@ -6,6 +6,11 @@ using namespace std;
 class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
+        if (strs.empty())
+        {
+            return string();
+        }
+
         string prefix;
 
         uint32_t pos = 0;
@@ -36,6 +41,7 @@ int main()
     assert(s.longestCommonPrefix(vector<string>{"dog", "racecar", "car"}) == "");
     assert(s.longestCommonPrefix(vector<string>{"dog", "racecar", ""}) == "");
     assert(s.longestCommonPrefix(vector<string>{"", "racecar", "car"}) == "");
+    assert(s.longestCommonPrefix(vector<string>{}) == "");
 
     return 0;
 }
