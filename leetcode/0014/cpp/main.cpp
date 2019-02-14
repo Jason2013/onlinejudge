@@ -19,12 +19,12 @@ public:
         string prefix;
 
         uint32_t pos = 0;
-        while (pos <= strs[0].size() - 1)
+        while (pos < strs[0].size())
         {
             char c = strs[0][pos];
             for (uint32_t si = 1; si < static_cast<uint32_t>(strs.size()); si++)
             {
-                if (pos > strs[si].size() - 1 || strs[si][pos] != c)
+                if (pos >= strs[si].size() || strs[si][pos] != c)
                 {
                     return prefix;
                 }
@@ -48,6 +48,7 @@ int main()
     assert(s.longestCommonPrefix(vector<string>{"", "racecar", "car"}) == "");
     assert(s.longestCommonPrefix(vector<string>{}) == "");
     assert(s.longestCommonPrefix(vector<string>{""}) == "");
+    assert(s.longestCommonPrefix(vector<string>{"", ""}) == "");
 
     return 0;
 }
