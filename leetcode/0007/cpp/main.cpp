@@ -11,6 +11,12 @@ public:
 
         if (x < 0)
         {
+            if (x == -2147483648)
+            {
+                // overflow
+                return 0;
+            }
+
             x = -x;
             flag = -1;
         }
@@ -41,6 +47,7 @@ int main()
     assert(s.reverse(-123) == -321);
     assert(s.reverse(120) == 21);
     assert(s.reverse(1534236469) == 0);
+    assert(s.reverse(-2147483648) == 0);
 
     return 0;
 }
