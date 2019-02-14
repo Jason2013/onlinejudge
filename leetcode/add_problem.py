@@ -2,6 +2,7 @@
 
 import os
 import sys
+import subprocess
 
 def help(ScriptName):
     print("Usage: {SCRIPT_NAME} ProblemNo".format(SCRIPT_NAME=ScriptName))
@@ -26,20 +27,40 @@ def CopyFileWithReplace(SrcFile, DestFile, items):
         f.write(src)
 
 
-def CopyCppFiles(items = None):
-
-    PROBLEM_NO = items["PROBLEM_NO"]
-
-    files = [
+def GetSrcFiles():
+    SrcFiles = [
         "templates/cpp/CMakeLists.txt",
         "templates/cpp/main.cpp",
         "templates/cpp/build/build.bat",
     ]
 
-    for SrcFile in files:
-        DestFile = SrcFile.replace("templates", PROBLEM_NO)
+    return SrcFiles
+
+
+def GetDestFiles(PROBLEM_NO):
+    return [f.replace("templates", PROBLEM_NO) for f in GetSrcFiles()]
+
+
+def CopyCppFiles(items = None):
+
+    PROBLEM_NO = items["PROBLEM_NO"]
+
+    SrcFiles = GetSrcFiles()
+    DestFiles = GetDestFiles(PROBLEM_NO)
+
+    for SrcFile, DestFile in zip(SrcFiles, DestFiles):
         CopyFileWithReplace(SrcFile, DestFile, items)
 
+
+def AddDestFilesToGit(items):
+
+    PROBLEM_NO = items["PROBLEM_NO"]
+    DestFiles = GetDestFiles(PROBLEM_NO)
+
+    for f in DestFiles:
+        subprocess.call(["git", "add", f])
+
+    subprocess.call(["git", "commit", "-m", '"Add problem [%s]."' % PROBLEM_NO])
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
@@ -51,3 +72,4 @@ if __name__ == "__main__":
     # print(type(sys.argv[1]))
     items["PROBLEM_NO"] = ProblemNo(sys.argv[1])
     CopyCppFiles(items)
+    AddDestFilesToGit(items)
