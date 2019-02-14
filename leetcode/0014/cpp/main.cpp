@@ -11,6 +11,11 @@ public:
             return string();
         }
 
+        if (strs.size() == 1)
+        {
+            return strs[0];
+        }
+
         string prefix;
 
         uint32_t pos = 0;
@@ -42,6 +47,7 @@ int main()
     assert(s.longestCommonPrefix(vector<string>{"dog", "racecar", ""}) == "");
     assert(s.longestCommonPrefix(vector<string>{"", "racecar", "car"}) == "");
     assert(s.longestCommonPrefix(vector<string>{}) == "");
+    assert(s.longestCommonPrefix(vector<string>{""}) == "");
 
     return 0;
 }
