@@ -6,15 +6,8 @@ class Solution:
             return False
 
         xs = str(x)
-        first = 0
-        last = len(xs) - 1
-        while first < last:
-            if xs[first] != xs[last]:
-                return False
-            first += 1
-            last -= 1
-
-        return True
+        rxs = ''.join((x for x in reversed(xs)))
+        return xs == rxs
 
 if __name__ == "__main__":
     s = Solution()
