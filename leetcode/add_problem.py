@@ -32,6 +32,7 @@ def GetSrcFiles():
         "templates/cpp/CMakeLists.txt",
         "templates/cpp/main.cpp",
         "templates/cpp/build/build.bat",
+        "templates/python3/main.py",
     ]
 
     return SrcFiles
@@ -58,7 +59,7 @@ def AddDestFilesToGit(items):
     DestFiles = GetDestFiles(PROBLEM_NO)
 
     for f in DestFiles:
-        subprocess.call(["git", "add", f])
+        subprocess.call(["git", "add", "-f", f])
 
     subprocess.call(["git", "commit", "-m", '"Add problem [%s]."' % PROBLEM_NO])
 
