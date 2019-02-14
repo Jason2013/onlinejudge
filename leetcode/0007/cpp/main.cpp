@@ -26,7 +26,6 @@ public:
                 return 0;
             }
 
-
             result = result * 10 + remain;
         }
 
