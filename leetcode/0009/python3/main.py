@@ -6,7 +6,7 @@ class Solution:
             return False
 
         xs = str(x)
-        rxs = ''.join((x for x in reversed(xs)))
+        rxs = ''.join(reversed(xs))
         return xs == rxs
 
 if __name__ == "__main__":
