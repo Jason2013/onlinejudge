@@ -2,15 +2,16 @@
 #include <iostream>
 using namespace std;
 
+class Solution {
+public:
+    int reverse(int x) {
+
 #define INTMIN (1 << 31)
 #define INTMAX (~INTMIN)
 
 #define INTMIN_LAST (INTMIN % 10)
 #define INTMAX_LAST (INTMAX % 10)
 
-class Solution {
-public:
-    int reverse(int x) {
         int result = 0;
 
         while (x != 0)
