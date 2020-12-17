@@ -8,7 +8,54 @@ class Solution(object):
         :rtype: float
         """
 
-        nums = sorted(nums1 + nums2)
+        assert nums1 or nums2
+
+        if not nums1:
+            return self.findMedianSortedArray(nums2)
+
+        if not nums2:
+            return self.findMedianSortedArray(nums1)
+
+        n = len(nums1)
+        m = len(nums2)
+
+        if n < m:
+            nums1, nums2 = nums2, nums1
+            n, m = m, n
+
+        if n == 1 and m == 1:
+            return (nums1[0] + nums2[0])/2
+
+        length = n + m
+        if length % 2 == 1:
+            half = int(length/2)
+            odd = True
+        else:
+            half = int(length/2) - 1
+            odd = False
+
+        x = int(half/2)
+        y = half - x - 1
+        while x >= 0 and x <= half:
+            assert y >= 0 and y < m
+            if nums1[x] <= nums2[y+1]:
+                if y == m - 1 or nums2[y] <= nums1[x+1]:
+                    if odd:
+                        return nums1[x]
+                    else:
+                        return (max(nums1[x], nums2[y]) + min(nums1[x+1], nums2[y+1]))/2
+                else:
+                    x = int(((x+1) + half)/2)
+                    y = half - x - 1
+            else:
+                x = int((x-1)/2)
+                y = half - x - 1
+
+        assert False
+        # nums = sorted(nums1 + nums2)
+        # return findMedianSortedArray(nums)
+
+    def findMedianSortedArray(self, nums):
         length = len(nums)
         if length % 2 == 1: # Odd
             return nums[int((length - 1)/2)]
