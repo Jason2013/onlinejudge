@@ -34,23 +34,23 @@ class Solution(object):
                 if nums1[x-1] > nums2[y]:
                     high = x - 1
                 else:
-                    return self.findResult(nums1, n, x-1, x, nums2, m, y-1, y)
+                    return self.findResult(nums1, n, x, nums2, m, y)
             elif x == 0:
                 if nums2[y-1] > nums1[x]:
                     low = x + 1
                 else:
-                    return self.findResult(nums1, n, x-1, x, nums2, m, y-1, y)
+                    return self.findResult(nums1, n, x, nums2, m, y)
             else:
                 if y == m:
                     if nums2[y-1] > nums1[x]:
                         low = x + 1
                     else:
-                        return self.findResult(nums1, n, x-1, x, nums2, m, y-1, y)
+                        return self.findResult(nums1, n, x, nums2, m, y)
                 elif y == 0:
                     if nums1[x-1] > nums2[y]:
                         high = x - 1
                     else:
-                        return self.findResult(nums1, n, x-1, x, nums2, m, y-1, y)
+                        return self.findResult(nums1, n, x, nums2, m, y)
                 else:
                     if nums1[x-1] > nums2[y]:
                         high = x - 1
@@ -58,37 +58,37 @@ class Solution(object):
                         if nums2[y-1] > nums1[x]:
                             low = x + 1
                         else:
-                            return self.findResult(nums1, n, x-1, x, nums2, m, y-1, y)
+                            return self.findResult(nums1, n, x, nums2, m, y)
 
-    def findResult(self, nums1, n, x1, x2, nums2, m, y1, y2):
+    def findResult(self, nums1, n, x, nums2, m, y):
         odd = (n + m) % 2 == 1
         if odd:
-            if x2 not in range(n):
-                return nums2[y2]
-            if y2 not in range(m):
-                return nums1[x2]
-            return min(nums1[x2], nums2[y2])
+            if x not in range(n):
+                return nums2[y]
+            if y not in range(m):
+                return nums1[x]
+            return min(nums1[x], nums2[y])
         else:
-            if x1 not in range(n):
-                t1 = nums2[y1]
-            elif y1 not in range(m):
-                t1 = nums1[x1]
+            if x-1 not in range(n):
+                t1 = nums2[y-1]
+            elif y-1 not in range(m):
+                t1 = nums1[x-1]
             else:
-                t1 = max(nums1[x1], nums2[y1])
-            if x2 not in range(n):
-                t2 = nums2[y2]
-            elif y2 not in range(m):
-                t2 = nums1[x2]
+                t1 = max(nums1[x-1], nums2[y-1])
+            if x not in range(n):
+                t2 = nums2[y]
+            elif y not in range(m):
+                t2 = nums1[x]
             else:
-                t2 = min(nums1[x2], nums2[y2])
+                t2 = min(nums1[x], nums2[y])
             return (t1+t2)/2
 
     def findMedianSortedArray(self, nums):
         length = len(nums)
         if length % 2 == 1: # Odd
-            return nums[int((length - 1)/2)]
+            return nums[length//2]
         else: # Even
-            right = int(length/2)
+            right = length//2
             left = right - 1
             return (nums[left] + nums[right])/2
 
