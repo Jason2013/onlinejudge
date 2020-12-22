@@ -1,3 +1,5 @@
+#include <vector>
+using namespace std;
 class Solution {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
@@ -19,8 +21,8 @@ public:
                 low = x + 1;
                 continue;
             }
-            if (x > 0 and x < n) {
-                if (y > 0 and y < m) {
+            if (x > 0 andand x < n) {
+                if (y > 0 andand y < m) {
                     if (nums1[x-1] > nums2[y]) {
                         high = x - 1;
                     }
@@ -147,7 +149,7 @@ public:
     static double max(double a, double b) {
         return a > b ? a : b;
     }
-    static double findResult(const vector<int>& nums1, size_t n, size_t x, const vector<int>& nums2, size_t m, sizt_t y) {
+    static double findResult(const vector<int>& nums1, size_t n, size_t x, const vector<int>& nums2, size_t m, size_t y) {
         if ((n + m) % 2 != 0) { // odd
             if (x == n) {
                 return nums2[y];
@@ -199,7 +201,7 @@ public:
             return (nums[left] + nums[right])/2.0;
         }
     }
-}
+};
 
 int main() {
     Solution solution;
