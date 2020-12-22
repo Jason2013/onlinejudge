@@ -63,21 +63,21 @@ class Solution(object):
     def findResult(self, nums1, n, x, nums2, m, y):
         odd = (n + m) % 2 == 1
         if odd:
-            if x not in range(n):
+            if x == n:
                 return nums2[y]
-            if y not in range(m):
+            if y == m:
                 return nums1[x]
             return min(nums1[x], nums2[y])
         else:
-            if x-1 not in range(n):
+            if x == 0:
                 t1 = nums2[y-1]
-            elif y-1 not in range(m):
+            elif y == 0:
                 t1 = nums1[x-1]
             else:
                 t1 = max(nums1[x-1], nums2[y-1])
-            if x not in range(n):
+            if x == n:
                 t2 = nums2[y]
-            elif y not in range(m):
+            elif y == m:
                 t2 = nums1[x]
             else:
                 t2 = min(nums1[x], nums2[y])
