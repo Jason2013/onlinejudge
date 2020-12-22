@@ -19,8 +19,7 @@ class Solution(object):
         n = len(nums1)
         m = len(nums2)
 
-        length = n + m
-        half = int(length/2)
+        half = int((n + m)/2)
 
         low = 0
         high = half
