@@ -30,17 +30,7 @@ class Solution(object):
                 low = x + 1
                 continue
 
-            if x == n:
-                if nums1[x-1] > nums2[y]:
-                    high = x - 1
-                else:
-                    return self.findResult(nums1, n, x, nums2, m, y)
-            elif x == 0:
-                if nums2[y-1] > nums1[x]:
-                    low = x + 1
-                else:
-                    return self.findResult(nums1, n, x, nums2, m, y)
-            else:
+            if x > 0 and x < n:
                 if y == m:
                     if nums2[y-1] > nums1[x]:
                         low = x + 1
@@ -59,6 +49,16 @@ class Solution(object):
                             low = x + 1
                         else:
                             return self.findResult(nums1, n, x, nums2, m, y)
+            elif x == n:
+                if nums1[x-1] > nums2[y]:
+                    high = x - 1
+                else:
+                    return self.findResult(nums1, n, x, nums2, m, y)
+            else:#if x == 0:
+                if nums2[y-1] > nums1[x]:
+                    low = x + 1
+                else:
+                    return self.findResult(nums1, n, x, nums2, m, y)
 
     def findResult(self, nums1, n, x, nums2, m, y):
         odd = (n + m) % 2 == 1
