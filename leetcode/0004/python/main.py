@@ -19,19 +19,13 @@ class Solution(object):
         n = len(nums1)
         m = len(nums2)
 
-        half = int((n + m)/2)
+        half = (n + m)//2
 
         low = 0
-        high = half
-        while True:
-            x = (low + high)/2
-            if x < 0 or x > high:
-                break
-            x = int(x)
+        high = min(n, half)
+        while low <= high:
+            x = (low + high)//2
             y = half - x # number of nums2
-            if x > n:
-                high = x - 1
-                continue
             if y > m:
                 low = x + 1
                 continue
@@ -41,38 +35,34 @@ class Solution(object):
             y2 = y
 
             if x == n:
-                if nums1[x1] <= nums2[y2]:
-                    return self.findResult(nums1, n, x1, x2, nums2, m, y1, y2)
-                else:
+                if nums1[x1] > nums2[y2]:
                     high = x - 1
-            elif x == 0:
-                if nums2[y1] <= nums1[x2]:
+                else:
                     return self.findResult(nums1, n, x1, x2, nums2, m, y1, y2)
-                else:
+            elif x == 0:
+                if nums2[y1] > nums1[x2]:
                     low = x + 1
-            else:
-                assert x > 0 and x < n
-                if y == m:
-                    if nums2[y1] <= nums1[x2]:
-                        return self.findResult(nums1, n, x1, x2, nums2, m, y1, y2)
-                    else:
-                        low = x + 1
-                    pass
-                elif y == 0:
-                    if nums1[x1] <= nums2[y2]:
-                        return self.findResult(nums1, n, x1, x2, nums2, m, y1, y2)
-                    else:
-                        high = x - 1
-                    pass
                 else:
-                    if nums1[x1] <= nums2[y2]:
-                        if nums2[y1] <= nums1[x2]:
-                            return self.findResult(nums1, n, x1, x2, nums2, m, y1, y2)
-                        else:
-                            low = x + 1
+                    return self.findResult(nums1, n, x1, x2, nums2, m, y1, y2)
+            else:
+                if y == m:
+                    if nums2[y1] > nums1[x2]:
+                        low = x + 1
                     else:
-                        assert nums1[x1] > nums2[y2]
+                        return self.findResult(nums1, n, x1, x2, nums2, m, y1, y2)
+                elif y == 0:
+                    if nums1[x1] > nums2[y2]:
                         high = x - 1
+                    else:
+                        return self.findResult(nums1, n, x1, x2, nums2, m, y1, y2)
+                else:
+                    if nums1[x1] > nums2[y2]:
+                        high = x - 1
+                    else:
+                        if nums2[y1] > nums1[x2]:
+                            low = x + 1
+                        else:
+                            return self.findResult(nums1, n, x1, x2, nums2, m, y1, y2)
 
     def findResult(self, nums1, n, x1, x2, nums2, m, y1, y2):
         odd = (n + m) % 2 == 1
