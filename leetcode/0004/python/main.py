@@ -49,6 +49,8 @@ class Solution(object):
                         high = x - 1
                     else:
                         return self.findResult(nums1, n, x, nums2, m, y)
+                else:
+                    low = x + 1
             elif x == n:
                 if nums1[x-1] > nums2[y]:
                     high = x - 1

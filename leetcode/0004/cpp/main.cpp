@@ -18,10 +18,6 @@ public:
         while (low <= high) {
             size_t x = (low + high)/2;
             size_t y = half - x;
-            if (y > m) {
-                low = x + 1;
-                continue;
-            }
             if (x > 0 && x < n) {
                 if (y > 0 && y < m) {
                     if (nums1[x-1] > nums2[y]) {
@@ -51,6 +47,9 @@ public:
                     else {
                         return findResult(nums1, n, x, nums2, m, y);
                     }
+                }
+                else {
+                    low = x + 1;
                 }
             }
             else if (x == n) {
