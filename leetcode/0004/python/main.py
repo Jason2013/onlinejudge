@@ -19,15 +19,15 @@ class Solution(object):
         half = (n + m)//2
 
         low = 0
-        high = min(n, half)
+        high = n
         while low <= high:
             x = (low + high)//2
             y = half - x
 
-            if x > 0 and y < m and nums1[x-1] > nums2[y]:
+            if x > 0 and nums1[x-1] > nums2[y]:
                 high = x - 1
                 continue
-            if x < n and y > 0 and nums2[y-1] > nums1[x]:
+            if x < n and nums2[y-1] > nums1[x]:
                 low = x + 1
                 continue
             break
