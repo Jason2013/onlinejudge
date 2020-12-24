@@ -10,11 +10,11 @@ class Solution(object):
 
         assert nums1 or nums2
 
-        if not nums1:
-            return self.findMedianSortedArray(nums2)
+        # if not nums1:
+        #     return self.findMedianSortedArray(nums2)
 
-        if not nums2:
-            return self.findMedianSortedArray(nums1)
+        # if not nums2:
+        #     return self.findMedianSortedArray(nums1)
 
         n = len(nums1)
         m = len(nums2)
@@ -110,29 +110,29 @@ class Solution(object):
                 t2 = min(nums1[x], nums2[y])
             return (t1+t2)/2
 
-    def findMedianSortedArray(self, nums):
-        length = len(nums)
-        if length % 2 == 1: # Odd
-            return nums[length//2]
-        else: # Even
-            right = length//2
-            left = right - 1
-            return (nums[left] + nums[right])/2
+    # def findMedianSortedArray(self, nums):
+    #     length = len(nums)
+    #     if length % 2 == 1: # Odd
+    #         return nums[length//2]
+    #     else: # Even
+    #         right = length//2
+    #         left = right - 1
+    #         return (nums[left] + nums[right])/2
 
 class TestSolution(unittest.TestCase):
 
     def setUp(self):
         self.solution = Solution()
 
-    def test_findMedianSortedArray1(self):
-        nums = [1]
-        res = self.solution.findMedianSortedArray(nums)
-        self.assertEqual(res, 1)
+    # def test_findMedianSortedArray1(self):
+    #     nums = [1]
+    #     res = self.solution.findMedianSortedArray(nums)
+    #     self.assertEqual(res, 1)
 
-    def test_findMedianSortedArray2(self):
-        nums = [1, 2]
-        res = self.solution.findMedianSortedArray(nums)
-        self.assertEqual(res, 1.5)
+    # def test_findMedianSortedArray2(self):
+    #     nums = [1, 2]
+    #     res = self.solution.findMedianSortedArray(nums)
+    #     self.assertEqual(res, 1.5)
 
     def test_case1(self):
         nums1 = [1, 3]
