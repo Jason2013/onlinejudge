@@ -13,6 +13,9 @@ class Solution(object):
         n = len(nums1)
         m = len(nums2)
 
+        if n > m:
+            return self.findMedianSortedArrays(nums2, nums1)
+
         half = (n + m)//2
 
         low = 0
@@ -29,27 +32,23 @@ class Solution(object):
                 continue
             break
 
-        odd = (n + m) % 2 == 1
-        if odd:
-            if x == n:
-                return nums2[y]
-            if y == m:
-                return nums1[x]
-            return min(nums1[x], nums2[y])
+        if x == n:
+            t2 = nums2[y]
+        elif y == m:
+            t2 = nums1[x]
         else:
+            t2 = min(nums1[x], nums2[y])
+
+        even = (n + m) % 2 == 0
+        if even:
             if x == 0:
                 t1 = nums2[y-1]
             elif y == 0:
                 t1 = nums1[x-1]
             else:
                 t1 = max(nums1[x-1], nums2[y-1])
-            if x == n:
-                t2 = nums2[y]
-            elif y == m:
-                t2 = nums1[x]
-            else:
-                t2 = min(nums1[x], nums2[y])
-            return (t1+t2)/2
+
+        return (t1+t2)/2 if even else t2
 
 class TestSolution(unittest.TestCase):
 
@@ -85,6 +84,12 @@ class TestSolution(unittest.TestCase):
         nums2 = []
         res = self.solution.findMedianSortedArrays(nums1, nums2) 
         self.assertEqual(res, 2)
+
+    def test_casey(self):
+        nums1 = [3, 4]
+        nums2 = []
+        res = self.solution.findMedianSortedArrays(nums1, nums2) 
+        self.assertEqual(res, 3.5)
 
 if __name__ == '__main__':
     unittest.main()
