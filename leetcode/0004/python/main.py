@@ -26,41 +26,66 @@ class Solution(object):
         while low <= high:
             x = (low + high)//2
             y = half - x # number of nums2
-            if y > m:
-                low = x + 1
-                continue
 
-            if x > 0 and x < n:
-                if y > 0 and y < m:
-                    if nums1[x-1] > nums2[y]:
-                        high = x - 1
-                    else:
-                        if nums2[y-1] > nums1[x]:
-                            low = x + 1
-                        else:
-                            return self.findResult(nums1, n, x, nums2, m, y)
-                elif y == m:
-                    if nums2[y-1] > nums1[x]:
-                        low = x + 1
-                    else:
-                        return self.findResult(nums1, n, x, nums2, m, y)
-                elif y == 0:
-                    if nums1[x-1] > nums2[y]:
-                        high = x - 1
-                    else:
-                        return self.findResult(nums1, n, x, nums2, m, y)
-                else:
-                    low = x + 1
-            elif x == n:
-                if nums1[x-1] > nums2[y]:
-                    high = x - 1
-                else:
-                    return self.findResult(nums1, n, x, nums2, m, y)
-            else: # x == 0:
-                if nums2[y-1] > nums1[x]:
-                    low = x + 1
-                else:
-                    return self.findResult(nums1, n, x, nums2, m, y)
+            c1 = x > 0 and y < m and nums1[x-1] > nums2[y]
+            # cc = x > 0 and y >= m : ignore
+            c2 = x < n and y > 0 and nums2[y-1] > nums1[x]
+            # cd = x >= n and y > 0 : ignore
+            print(F"n = {n}, m = {m}, x = {x}, y = {y}, c1 = {c1}, c2 = {c2}")
+            if c1:
+                high = x - 1
+            elif c2:
+                low = x + 1
+                # if not c2:
+            else:
+                return self.findResult(nums1, n, x, nums2, m, y)
+            # else:
+                # assert c2
+                # low = x + 1
+                # high = x - 1
+#            if x > 0 and x < n:
+#                if y > 0 and y < m:
+#                    if nums1[x-1] > nums2[y]: # x > 0 and y < m and !(a <= d) :--> <<<
+#                        high = x - 1
+#                    else:
+#                        if nums2[y-1] > nums1[x]: # x < n and y > 0 and !(c <= b) :--> >>>
+#                            low = x + 1
+#                        else: # (x > 0 and x < n) and (y > 0 and y < m) and (a <= d and c <= b) :--> ###
+#                            return self.findResult(nums1, n, x, nums2, m, y)
+#                elif y == m:
+#                    if nums2[y-1] > nums1[x]: # x < n and y > 0 and !(c <= b) :--> >>>
+#                        low = x + 1
+#                    else: # x < n and y > 0 and (c <= b) :--> ###
+#                        return self.findResult(nums1, n, x, nums2, m, y)
+#                elif y == 0:
+#                    if nums1[x-1] > nums2[y]: # x > 0 and y < m and !(a <= d) :--> <<<
+#                        high = x - 1
+#                    else: # x > 0 and y < m and (a <= d) :--> ###
+#                        return self.findResult(nums1, n, x, nums2, m, y)
+#                else: # y > m :--> >>>
+#                    low = x + 1
+#            elif x == n:
+#                if nums1[x-1] > nums2[y]: # x > 0 and y < m and !(a <= d) :--> <<<
+#                    high = x - 1
+#                else: # x > 0 and y < m and (a <= d) :--> ###
+#                    return self.findResult(nums1, n, x, nums2, m, y)
+#            else: # x == 0:
+#                if nums2[y-1] > nums1[x]: # x < n and y > 0 and !(c <= b) :--> >>>
+#                    low = x + 1
+#                else: # x < n and y > 0 and (c <= b) :--> ###
+#                    return self.findResult(nums1, n, x, nums2, m, y)
+
+# c1 and c2 :--> ###
+# else c1 and not c2 :--> <<<
+# else not c1 and c2 :--> >>>
+# if c1:
+      # if c2:
+      #     :###
+      # else:
+      #     :<<<
+  # elif c2:
+      # :>>>
+
 
     def findResult(self, nums1, n, x, nums2, m, y):
         odd = (n + m) % 2 == 1
