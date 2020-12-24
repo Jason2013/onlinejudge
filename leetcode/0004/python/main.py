@@ -39,16 +39,17 @@ class Solution(object):
         else:
             t2 = min(nums1[x], nums2[y])
 
-        even = (n + m) % 2 == 0
-        if even:
-            if x == 0:
-                t1 = nums2[y-1]
-            elif y == 0:
-                t1 = nums1[x-1]
-            else:
-                t1 = max(nums1[x-1], nums2[y-1])
+        if (n + m) % 2: # odd
+            return t2
 
-        return (t1+t2)/2 if even else t2
+        if x == 0:
+            t1 = nums2[y-1]
+        elif y == 0:
+            t1 = nums1[x-1]
+        else:
+            t1 = max(nums1[x-1], nums2[y-1])
+
+        return (t1 + t2)/2
 
 class TestSolution(unittest.TestCase):
 
