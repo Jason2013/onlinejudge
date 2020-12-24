@@ -19,18 +19,16 @@ class Solution(object):
         high = min(n, half)
         while low <= high:
             x = (low + high)//2
-            y = half - x # number of nums2
+            y = half - x
 
-            c1 = x > 0 and y < m and nums1[x-1] > nums2[y]
-            c2 = x < n and y > 0 and nums2[y-1] > nums1[x]
-            if c1:
+            if x > 0 and y < m and nums1[x-1] > nums2[y]:
                 high = x - 1
-            elif c2:
+                continue
+            if x < n and y > 0 and nums2[y-1] > nums1[x]:
                 low = x + 1
-            else:
-                return self.findResult(nums1, n, x, nums2, m, y)
+                continue
+            break
 
-    def findResult(self, nums1, n, x, nums2, m, y):
         odd = (n + m) % 2 == 1
         if odd:
             if x == n:
