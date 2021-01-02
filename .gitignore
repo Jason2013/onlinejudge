@@ -1,2 +1,5 @@
 build
 *.swp
+*.obj
+*.exe
+output_r.txt
