@@ -21,4 +21,11 @@ http://acm.zju.edu.cn/onlinejudge/showProblems.do?contestId=1&pageNumber=1
 - Username: jasonchen
 - Password: P******6
 
+## HDU
+
+[杭州电子科技大学 ACM](http://acm.hdu.edu.cn/)
+
+- Username: cnvegnix
+- Password: P*****6
+
 ## Jobdu
