@@ -26,7 +26,7 @@ int main()
             r = sum(b, bs, a, as);
         }
 
-        printf("Case %d:\n %s + %s = %s\n\n", i, a, b, r);
+        printf("Case %d:\n%s + %s = %s\n\n", i, a, b, r);
     }
     return 0;
 }
