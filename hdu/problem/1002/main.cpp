@@ -17,8 +17,8 @@ int main()
 
         scanf("%s", a);
         scanf("%s", b);
-        int as = strlen(a);
-        int bs = strlen(b);
+        int as = (int)strlen(a);
+        int bs = (int)strlen(b);
         if (as < bs) {
             r = sum(a, as, b, bs);
         }
