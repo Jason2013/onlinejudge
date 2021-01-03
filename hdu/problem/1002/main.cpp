@@ -3,7 +3,7 @@
 #include <string.h>
 
 char a[1001];
-char b[1002];
+char b[1001];
 char buf[1002];
 
 char* sum(char*, int, char*, int);
