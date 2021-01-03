@@ -36,31 +36,38 @@ char* sum(char* a, int as, char* b, int bs) {
     char rc;
     buf[rs] = '\0';
     char c = 0;
-    while (--as >= 0) {
-        --bs;
-        --rs;
-        rc = (b[bs] - '0') + (a[as] - '0') + c;
-        if (rc > 9) {
-            c = 1;
-            rc -= 10;
-        }
-        else {
-            c = 0;
-        }
-        buf[rs] = rc + '0';
-    }
     while (--bs >= 0) {
+        --as;
         --rs;
         rc = (b[bs] - '0') + c;
-        if (rc > 9) {
-            c = 1;
-            rc -= 10;
+        if (as >= 0) {
+            rc += a[as];
+        }
+        else if (c == '\0') {
+            buf[bs] = rc;
+            break;
+        }
+        if (rc > (char)9) {
+            c = (char)1;
+            rc -= (char)10;
         }
         else {
             c = 0;
         }
         buf[rs] = rc + '0';
     }
+    //    while (--bs >= 0) {
+    //        --rs;
+    //        rc = (b[bs] - '0') + c;
+    //        if (rc > 9) {
+    //            c = 1;
+    //            rc -= 10;
+    //        }
+    //        else {
+    //            c = 0;
+    //        }
+    //        buf[rs] = rc + '0';
+    //    }
     if (c)
     {
         --rs;
@@ -69,6 +76,9 @@ char* sum(char* a, int as, char* b, int bs) {
     }
     else
     {
+        while (--bs >= 0)
+            --rs;
+        buf[rs] = b[bs];
         return &buf[1];
     }
 }
