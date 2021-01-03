@@ -44,7 +44,7 @@ char* sum(char* a, int as, char* b, int bs) {
             rc += a[as] - '0';
         }
         else if (c == '\0') {
-            buf[bs] = rc + '0';
+            buf[rs] = rc + '0';
             break;
         }
         if (rc > (char)9) {
