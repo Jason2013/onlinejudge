@@ -41,10 +41,10 @@ char* sum(char* a, int as, char* b, int bs) {
         --rs;
         rc = (b[bs] - '0') + c;
         if (as >= 0) {
-            rc += a[as];
+            rc += a[as] - '0';
         }
         else if (c == '\0') {
-            buf[bs] = rc;
+            buf[bs] = rc + '0';
             break;
         }
         if (rc > (char)9) {
@@ -76,9 +76,10 @@ char* sum(char* a, int as, char* b, int bs) {
     }
     else
     {
-        while (--bs >= 0)
+        while (--bs >= 0) {
             --rs;
-        buf[rs] = b[bs];
+            buf[rs] = b[bs];
+        }
         return &buf[1];
     }
 }
