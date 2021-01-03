@@ -56,18 +56,7 @@ char* sum(char* a, int as, char* b, int bs) {
         }
         buf[rs] = rc + '0';
     }
-    //    while (--bs >= 0) {
-    //        --rs;
-    //        rc = (b[bs] - '0') + c;
-    //        if (rc > 9) {
-    //            c = 1;
-    //            rc -= 10;
-    //        }
-    //        else {
-    //            c = 0;
-    //        }
-    //        buf[rs] = rc + '0';
-    //    }
+
     if (c)
     {
         --rs;
