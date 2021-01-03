@@ -25,8 +25,9 @@ int main()
         else {
             r = sum(b, bs, a, as);
         }
-
-        printf("Case %d:\n%s + %s = %s\n\n", i, a, b, r);
+        if (i > 1)
+            putchar('\n');
+        printf("Case %d:\n%s + %s = %s\n", i, a, b, r);
     }
     return 0;
 }
