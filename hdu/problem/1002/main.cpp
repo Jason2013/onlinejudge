@@ -37,22 +37,22 @@ char* sum(char* a, int as, char* b, int bs) {
     while (--bs >= 0) {
         --as;
         --rs;
-        rc = (b[bs] - '0') + c;
+        rc = b[bs] + c;
         if (as >= 0) {
             rc += a[as] - '0';
         }
         else if (c == '\0') {
-            buf[rs] = rc + '0';
+            buf[rs] = rc;
             break;
         }
-        if (rc > (char)9) {
-            c = (char)1;
+        if (rc > (char)'9') {
+            c = '\1';
             rc -= (char)10;
         }
         else {
             c = 0;
         }
-        buf[rs] = rc + '0';
+        buf[rs] = rc;
     }
 
     if (c)
