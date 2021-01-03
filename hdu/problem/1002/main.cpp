@@ -6,7 +6,7 @@ char a[1001];
 char b[1002];
 char buf[1002];
 
-char* sum(char*, size_t, char*, size_t);
+char* sum(char*, int, char*, int);
 
 int main()
 {
@@ -31,15 +31,15 @@ int main()
     return 0;
 }
 
-char* sum(char* a, size_t as, char* b, size_t bs) {
-    size_t rs = bs + 1;
-    int rc;
+char* sum(char* a, int as, char* b, int bs) {
+    int rs = bs + 1;
+    char rc;
     buf[rs] = '\0';
-    int c = 0;
+    char c = 0;
     while (--as >= 0) {
         --bs;
         --rs;
-        rc = (b[bs] - '\0') + (a[as] - '\0') + c;
+        rc = (b[bs] - '0') + (a[as] - '0') + c;
         if (rc > 9) {
             c = 1;
             rc -= 10;
@@ -47,11 +47,11 @@ char* sum(char* a, size_t as, char* b, size_t bs) {
         else {
             c = 0;
         }
-        buf[rs] = rc + '\0';
+        buf[rs] = rc + '0';
     }
     while (--bs >= 0) {
         --rs;
-        rc = (b[bs] - '\0') + c;
+        rc = (b[bs] - '0') + c;
         if (rc > 9) {
             c = 1;
             rc -= 10;
@@ -59,7 +59,7 @@ char* sum(char* a, size_t as, char* b, size_t bs) {
         else {
             c = 0;
         }
-        buf[rs] = rc + '\0';
+        buf[rs] = rc + '0';
     }
     if (c)
     {
