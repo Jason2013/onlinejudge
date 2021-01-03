@@ -19,12 +19,7 @@ int main()
         scanf("%s", b);
         int as = (int)strlen(a);
         int bs = (int)strlen(b);
-        if (as < bs) {
-            r = sum(a, as, b, bs);
-        }
-        else {
-            r = sum(b, bs, a, as);
-        }
+        r = sum(a, as, b, bs);
         if (i > 1)
             putchar('\n');
         printf("Case %d:\n%s + %s = %s\n", i, a, b, r);
@@ -33,6 +28,8 @@ int main()
 }
 
 char* sum(char* a, int as, char* b, int bs) {
+    if (as > bs)
+        return sum(b, bs, a, as);
     int rs = bs + 1;
     char rc;
     buf[rs] = '\0';
