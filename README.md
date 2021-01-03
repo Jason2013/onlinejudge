@@ -16,9 +16,10 @@ https://www.spoj.com
 
 ## ZOJ
 
-http://acm.zju.edu.cn/onlinejudge/showProblems.do?contestId=1&pageNumber=1
+http://acm.zju.edu.cn/
+https://zoj.pintia.cn/
 
-- Username: jasonchen
+- Username: gmail
 - Password: P******6
 
 ## HDU
