@@ -29,4 +29,11 @@ https://zoj.pintia.cn/
 - Username: cnvegnix
 - Password: P*****6
 
+## TJOJ
+
+[同济大学 Online Judge](https://acm.tongji.edu.cn/)
+
+- Username: cnvegnix
+- Password: tjoj
+
 ## Jobdu
