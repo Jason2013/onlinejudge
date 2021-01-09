@@ -43,4 +43,9 @@ https://zoj.pintia.cn/
 - Username: shchenc1
 - Password: usaco
 
+## 	[洛谷](https://www.luogu.com.cn/)
+
+- Username: cnvegnix
+- Password: luogu
+
 ## Jobdu
