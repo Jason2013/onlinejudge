@@ -19,18 +19,14 @@ int ptclr(int pt, int clr) {
     return 1;
 }
 void find(int pt) {
+    if (pt > pc) {
+        ++rc;
+        return;
+    }
     for (int clr=1; clr<=4; ++clr) {
         if (ptclr(pt, clr)) {
             p[pt] = clr;
-            if (pt == pc) {
-                /* for (int i=1; i<=pc; ++i) */
-                /*     printf("%d ", p[i]); */
-                /* printf("\n"); */
-                ++rc;
-            }
-            else {
-                find(pt+1);
-            }
+            find(pt+1);
             p[pt] = 0;
         }
     }
