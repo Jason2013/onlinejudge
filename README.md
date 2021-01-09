@@ -27,7 +27,7 @@ https://zoj.pintia.cn/
 [杭州电子科技大学 ACM](http://acm.hdu.edu.cn/)
 
 - Username: cnvegnix
-- Password: P*****6
+- Password: hdu
 
 ## TJOJ
 
