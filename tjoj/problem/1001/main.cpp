@@ -2,22 +2,17 @@
 #include <stdio.h>
 
 int p[11];
-struct edge
-{
-    int a, b;
-};
-struct edge e[50];
+int e[21][21];
 
 int pc=0, ec=0, rc=0;
 
 int ptclr(int pt, int clr) {
-    for (int i=0; i<ec; ++i) {
-        if (e[i].a == pt && p[e[i].b] == clr ||
-            e[i].b == pt && p[e[i].a] == clr)
+    for (int i=1; i<=e[pt][0]; ++i)
+        if (p[e[pt][i]] == clr)
             return 0;
-    }
     return 1;
 }
+
 void find(int pt) {
     if (pt > pc) {
         ++rc;
@@ -32,11 +27,19 @@ void find(int pt) {
     }
 }
 
+void adde(int a, int b) {
+    e[a][++e[a][0]]=b;
+    e[b][++e[b][0]]=a;
+}
+
 int main()
 {
+    int a, b;
+    int ac, bc;
     scanf("%d %d", &pc, &ec);
     for (int i=0; i<ec; ++i) {
-        scanf("%d %d", &e[i].a, &e[i].b);
+        scanf("%d %d", &a, &b);
+        adde(a, b);
     }
     find(1);
     printf("%d\n", rc);
