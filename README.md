@@ -36,4 +36,11 @@ https://zoj.pintia.cn/
 - Username: cnvegnix
 - Password: tjoj
 
+## 	USACO
+
+[USA Computing Olympiad](https://train.usaco.org/)
+
+- Username: shchenc1
+- Password: usaco
+
 ## Jobdu
