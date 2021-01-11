@@ -38,11 +38,13 @@ main () {
         money[ibyn(tn)] -= ec*tc;
         for (int i=0; i<tc; ++i) {
             fscanf(fin, "%s", tn);
-            money[ibyn(tn)] += ec
+            money[ibyn(tn)] += ec;
         }
     }
     for (int i=0; i<n; ++i) {
-        printf("%s %d\n", name[i], money[i]);
+        fprintf(fout, "%s %d\n", name[i], money[i]);
     }
+    fclose(fin);
+    fclose(fout);
     exit (0);
 }
