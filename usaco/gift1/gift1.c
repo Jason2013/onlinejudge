@@ -28,12 +28,11 @@ main () {
     for (int i=0; i<n; ++i) {
         fscanf(fin, "%s", name[i]);
     }
-    for(;;) {
+    while (fscanf(fin, "%s", tn) == 1) {
         int total, tc, ec;
-        fscanf(fin, "%s", tn);
         fscanf(fin, "%d %d", &total, &tc);
         if (tc == 0)
-            break;
+            continue;
         ec = total/tc;
         money[ibyn(tn)] -= ec*tc;
         for (int i=0; i<tc; ++i) {
@@ -44,7 +43,5 @@ main () {
     for (int i=0; i<n; ++i) {
         fprintf(fout, "%s %d\n", name[i], money[i]);
     }
-    fclose(fin);
-    fclose(fout);
     exit (0);
 }
