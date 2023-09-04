@@ -19,7 +19,15 @@ vector<string> split(const string &);
  */
 
 int lonelyinteger(vector<int> a) {
-    return 0;
+    sort(a.begin(), a.end());
+
+    for (decltype(a.size()) i=0; i < a.size() - 1; i+=2) {
+        if (a[i] != a[i+1]) {
+            return a[i];
+        }
+    }
+
+    return a[a.size() - 1];
 }
 
 int main()
