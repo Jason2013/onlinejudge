@@ -19,10 +19,6 @@ def timeConversion(s):
     ms = s[2:8]
     ap = s[8:]
 
-#    print("hs=", hs)
-#    print("ms=", ms)
-#    print("ap=", ap)
-
     hh = int(hs)
 
     if ap == "AM":
