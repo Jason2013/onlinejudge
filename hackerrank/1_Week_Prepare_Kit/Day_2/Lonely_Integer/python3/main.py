@@ -15,10 +15,8 @@ import sys
 
 def lonelyinteger(a):
     # Write your code here
-    if len(a) == 1:
-        return a[0]
-
     a.sort()
+
     for i in range(0, len(a) - 1, 2):
         if a[i] != a[i+1]:
             return a[i]
