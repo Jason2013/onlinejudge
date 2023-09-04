@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -16,7 +17,21 @@ vector<string> split(const string &);
  */
 
 void plusMinus(vector<int> arr) {
+    int p = 0;
+    int n = 0;
+    int z = 0;//,n,z
 
+    for (int v : arr) {
+        if (v > 0) { ++p; }
+        else if (v < 0) { ++n; }
+        else { ++z; }
+    }
+
+    int sum = p+n+z;
+    cout << fixed << setprecision(6)
+        << (float)p/(float)sum << '\n'
+        << (float)n/(float)sum << '\n'
+        << (float)z/(float)sum << endl;
 }
 
 int main()
