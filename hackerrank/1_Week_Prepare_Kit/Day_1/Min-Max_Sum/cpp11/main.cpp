@@ -17,9 +17,9 @@ vector<string> split(const string &);
  */
 
 void miniMaxSum(vector<int> arr) {
-    int maxn = arr[0];
-    int minn = arr[0];
-    int sum = arr[0];
+    long long maxn = arr[0];
+    long long minn = arr[0];
+    long long sum = arr[0];
 
     for (int i = 1; i < arr.size(); ++i) {
         if (arr[i] > maxn) {
