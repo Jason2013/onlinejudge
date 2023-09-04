@@ -21,10 +21,7 @@ string timeConversion(string s) {
     string ms = s.substr(2, 6);
 
     int hh = stoi(s.substr(0, 2));
-    // cout << ap << endl;
-    // cout << hh << endl;
-    // cout << "hs=" << hs << endl;
-    // cout << "ms=" << ms << endl;
+
     if (ap == "AM") {
         if (hh == 12) {
             hs = "00";
