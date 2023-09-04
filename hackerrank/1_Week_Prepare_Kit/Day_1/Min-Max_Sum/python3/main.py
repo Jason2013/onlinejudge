@@ -14,6 +14,18 @@ import sys
 
 def miniMaxSum(arr):
     # Write your code here
+    maxn = arr[0]
+    minn = arr[0]
+    sumn = arr[0]
+
+    for i in range(1, 5):
+        if arr[i] > maxn:
+            maxn = arr[i]
+        elif arr[i] < minn:
+            minn = arr[i]
+        sumn += arr[i]
+
+    print("%d %d" % (sumn - maxn, sumn - minn))
 
 if __name__ == '__main__':
 
