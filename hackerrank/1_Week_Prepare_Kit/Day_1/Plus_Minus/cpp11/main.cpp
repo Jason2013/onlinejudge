@@ -19,7 +19,7 @@ vector<string> split(const string &);
 void plusMinus(vector<int> arr) {
     int p = 0;
     int n = 0;
-    int z = 0;//,n,z
+    int z = 0;
 
     for (int v : arr) {
         if (v > 0) { ++p; }
