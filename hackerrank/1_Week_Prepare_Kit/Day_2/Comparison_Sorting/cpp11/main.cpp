@@ -19,7 +19,12 @@ vector<string> split(const string &);
  */
 
 vector<int> countingSort(vector<int> arr) {
+    vector<int> result(100);
 
+    for (int v : arr) {
+        result[v] += 1;
+    }
+    return std::move(result);
 }
 
 int main()
@@ -66,7 +71,7 @@ string ltrim(const string &str) {
 
     s.erase(
         s.begin(),
-        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
+        find_if(s.begin(), s.end(), [](int c){ return !isspace(c); })
     );
 
     return s;
@@ -76,7 +81,7 @@ string rtrim(const string &str) {
     string s(str);
 
     s.erase(
-        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
+        find_if(s.rbegin(), s.rend(), [](int c){ return !isspace(c); }).base(),
         s.end()
     );
 
