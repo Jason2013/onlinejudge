@@ -1,8 +1,18 @@
-rem cl /nologo /O2 /Fe:%1.exe %1.cpp
-rem %1.exe
-rem fc %1.out %1.out_r
 cmake -S . -B build
 cmake --build build
-del /q main.out
-build\Debug\main.exe < main.in > main.out
-type main.out
+
+@echo off
+setlocal EnableDelayedExpansion
+
+for %%i in (main*.in) do (
+    echo @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    echo --- input: %%i ---
+    type %%i
+    if exist %%~ni.out del /q %%~ni.out
+    set OUTPUT_PATH=%%~ni.out
+    build\Debug\main.exe < %%i > %%~ni.out
+    echo +++ output: %%~ni.out +++
+    type %%~ni.out
+)
+
+endlocal
