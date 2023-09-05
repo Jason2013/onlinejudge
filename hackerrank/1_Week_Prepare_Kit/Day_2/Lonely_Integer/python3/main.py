@@ -15,13 +15,11 @@ import sys
 
 def lonelyinteger(a):
     # Write your code here
-    a.sort()
+    n = 0
+    for v in a:
+        n = n ^ v
 
-    for i in range(0, len(a) - 1, 2):
-        if a[i] != a[i+1]:
-            return a[i]
-
-    return a[-1]
+    return n
 
 
 if __name__ == '__main__':
