@@ -19,7 +19,18 @@ vector<string> split(const string &);
  */
 
 int diagonalDifference(vector<vector<int>> arr) {
-    return 0;
+    decltype(arr.size()) n = arr.size();
+
+    int t = 0;
+    for (int i=0; i<n; i++) {
+        t += arr[i][i] - arr[i][n-1-i];
+    }
+
+    if (t<0) {
+        t = -t;
+    }
+
+    return t;
 }
 
 int main()
