@@ -17,6 +17,17 @@ import sys
 
 def caesarCipher(s, k):
     # Write your code here
+    r = ""
+    for c in s:
+        if c >= 'a' and c <= 'z':
+            r += chr(ord('a') + ((ord(c) - ord('a') + k) % 26))
+        elif c >= 'A' and c <= 'Z':
+            r += chr(ord('A') + ((ord(c) - ord('A') + k) % 26))
+        else:
+            r += c
+
+    return r
+
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
