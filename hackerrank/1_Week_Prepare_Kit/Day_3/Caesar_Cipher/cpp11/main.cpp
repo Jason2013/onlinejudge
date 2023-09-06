@@ -20,7 +20,20 @@ string rtrim(const string &);
  */
 
 string caesarCipher(string s, int k) {
-    return "password";
+    string r;
+
+    for (char c : s) {
+        if (c >= 'a' && c<= 'z') {
+            r += char('a' + (int(c - 'a') + k) % 26);
+        }
+        else if (c >= 'A' && c <= 'Z') {
+            r += char('A' + (int(c - 'A') + k) % 26);
+        }
+        else {
+            r += c;
+        }
+    }
+    return r;
 }
 
 int main()
