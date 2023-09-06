@@ -7,8 +7,7 @@ for %%i in (..\cpp11\main*.in) do (
     @echo --- input: %%i ---
     type %%i
     if exist %%~ni.out del /q %%~ni.out
-    set OUTPUT_PATH=%%~ni.out
-    python main.py < %%i
+    python main.py < %%i > %%~ni.out
     @echo +++ output: %%~ni.out +++
     type %%~ni.out
 )
