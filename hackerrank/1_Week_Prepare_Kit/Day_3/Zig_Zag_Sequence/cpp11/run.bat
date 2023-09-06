@@ -9,8 +9,8 @@ for %%i in (main*.in) do (
     echo --- input: %%i ---
     type %%i
     if exist %%~ni.out del /q %%~ni.out
-    set OUTPUT_PATH=%%~ni.out
-    build\Debug\main.exe < %%i
+    rem set OUTPUT_PATH=%%~ni.out
+    build\Debug\main.exe < %%i > %%~ni.out
     echo +++ output: %%~ni.out +++
     type %%~ni.out
 )
