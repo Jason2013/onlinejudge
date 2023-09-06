@@ -17,6 +17,7 @@ import sys
 
 def towerBreakers(n, m):
     # Write your code here
+    return 1 if m > 1 and n % 2 else 2
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
