@@ -15,7 +15,26 @@ import sys
 
 def gridChallenge(grid):
     # Write your code here
-    return "sample"
+
+    n = len(grid)
+
+#    for r in grid:
+#        print(r)
+
+    for i in range(n):
+        grid[i] = "".join(sorted(grid[i]))
+
+#    print("after sort")
+#    for r in grid:
+#        print(r)
+
+    for i in range(len(grid[0])):
+        for j in range(n - 1):
+            if grid[j][i] > grid[j+1][i]:
+                return "NO"
+    
+    return "YES"
+
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
