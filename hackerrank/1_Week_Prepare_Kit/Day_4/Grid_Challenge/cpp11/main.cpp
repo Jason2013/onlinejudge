@@ -18,7 +18,22 @@ string rtrim(const string &);
  */
 
 string gridChallenge(vector<string> grid) {
-    return string("sample");
+    for (auto& s : grid) {
+        sort(s.begin(), s.end());
+    }
+
+    int rows = grid.size();
+    int cols = grid[0].size();
+
+    for (int i=0; i<cols; ++i) {
+        for (int j=0; j<rows-1; ++j) {
+            if (grid[j][i] > grid[j+1][i]) {
+                return "NO";
+            }
+        }
+    }
+
+    return "YES";
 }
 
 int main()
