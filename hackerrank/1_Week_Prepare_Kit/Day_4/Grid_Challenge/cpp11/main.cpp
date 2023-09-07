@@ -18,7 +18,7 @@ string rtrim(const string &);
  */
 
 string gridChallenge(vector<string> grid) {
-
+    return string("sample");
 }
 
 int main()
