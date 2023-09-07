@@ -17,6 +17,18 @@ import sys
 
 def superDigit(n, k):
     # Write your code here
+    sum = 0
+    for c in n:
+        sum += ord(c) - ord("0")
+
+    if k > 1:
+        sum *= k
+
+    if sum < 10:
+        return sum
+
+    return superDigit(str(sum), 1)
+
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
