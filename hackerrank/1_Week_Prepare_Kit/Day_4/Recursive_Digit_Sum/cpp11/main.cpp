@@ -21,7 +21,18 @@ vector<string> split(const string &);
  */
 
 int superDigit(string n, int k) {
+    int sum = 0;
+    for (char c : n) {
+        sum += c - '0';
+    }
 
+    sum *= k;
+
+    if (sum < 10) {
+        return sum;
+    }
+
+    return superDigit(to_string(sum), 1);
 }
 
 int main()
